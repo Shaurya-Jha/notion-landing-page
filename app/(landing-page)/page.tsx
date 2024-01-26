@@ -1,27 +1,29 @@
+import Navbar from "@/components/navbar/navbar"
 
 
 const LandingPage = () => {
   return (
     <div className="">
-        navbar
+        {/* navbar */}
+        <Navbar />
 
-        herosection
+        {/* herosection */}
 
-        second section
+        {/* second section */}
 
-        third section
+        {/* third section */}
 
-        fourth section
+        {/* fourth section */}
 
-        fifth section
+        {/* fifth section */}
 
-        sixth section
+        {/* sixth section */}
 
-        seventh section
+        {/* seventh section */}
 
-        get started section
+        {/* get started section */}
 
-        footer section
+        {/* footer section */}
     </div>
   )
 }
