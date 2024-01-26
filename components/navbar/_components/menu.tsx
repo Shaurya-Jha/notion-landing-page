@@ -63,28 +63,95 @@ const components: { title: string; href: string; description: string }[] = [
 
 export function Menu() {
   return (
-    <NavigationMenu>
+    // to toggle memu on large screen
+    <NavigationMenu className="hidden lg:flex">
       <NavigationMenuList>
+
+        {/* product tab navbar */}
         <NavigationMenuItem>
           <NavigationMenuTrigger>Product</NavigationMenuTrigger>
           <NavigationMenuContent>
             <div className="flex">
+              {/* Product dropdown div */}
               <ul className="grid p-2 md:w-[400px] lg:w-[250px] hover:cursor-pointer border-r">
-                <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                <div className="flex  items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
                   <PiBookOpenTextLight className="text-2xl mr-2 text-red-600" />
                   <div>
                     <a href="">Wikis</a>
                     <p className="text-gray-400 text-sm font-light">
-                        Centralize your knowledge
+                      Centralize your knowledge
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                  <PiBookOpenTextLight className="text-2xl mr-2 text-blue-600" />
+                  <div>
+                    <a href="">Projects</a>
+                    <p className="text-gray-400 text-sm font-light">
+                      For every Team or Size
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                  <PiFileThin className="text-2xl mr-2 text-yellow-600" />
+                  <div>
+                    <a href="">Docs</a>
+                    <p className="text-gray-400 text-sm font-light">
+                      Simple & Powerful
+                    </p>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                  <PiSparkleLight className="text-2xl mr-2 text-purple-600" />
+                  <div>
+                    <a href="">Bird Assistant</a>
+                    <p className="text-gray-400 text-sm font-light">
+                      Integrated AI Assistance
                     </p>
                   </div>
                 </div>
               </ul>
+
+              <div>
+                <ul className="grid p-2 md:w-[400px] lg:w-[250px] hover:cursor-pointer border-r">
+                  <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                    <div>
+                      <a>Template Gallery</a>
+                      <p className="text-gray-400 text-sm font-light">
+                        Setups to get you started
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                    <div>
+                      <a>Customer Stories</a>
+                      <p className="text-gray-400 text-sm font-light">
+                        See how teams use bird
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center gap-1 hover:bg-gray-400/10 p-1 rounded-sm">
+                    <div>
+                      <a>Connections</a>
+                      <p className="text-gray-400 text-sm font-light">
+                        Connect your tools to bird
+                      </p>
+                    </div>
+                  </div>
+                </ul>
+              </div>
             </div>
           </NavigationMenuContent>
         </NavigationMenuItem>
+
+        {/* download tab navbar */}
         <NavigationMenuItem>
-          <NavigationMenuTrigger>Components</NavigationMenuTrigger>
+          <NavigationMenuTrigger>Download</NavigationMenuTrigger>
           <NavigationMenuContent>
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
               {components.map((component) => (
@@ -99,10 +166,48 @@ export function Menu() {
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
+
+        {/* solutions tab navbar */}
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Solutions</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              {components.map((component) => (
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  href={component.href}
+                >
+                  {component.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+
+        {/* resources tab navbar */}
+        <NavigationMenuItem>
+          <NavigationMenuTrigger>Resources</NavigationMenuTrigger>
+          <NavigationMenuContent>
+            <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+              {components.map((component) => (
+                <ListItem
+                  key={component.title}
+                  title={component.title}
+                  href={component.href}
+                >
+                  {component.description}
+                </ListItem>
+              ))}
+            </ul>
+          </NavigationMenuContent>
+        </NavigationMenuItem>
+
+        {/* pricing tab navbar */}
         <NavigationMenuItem>
           <Link href="/docs" legacyBehavior passHref>
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
-              Documentation
+              Pricing
             </NavigationMenuLink>
           </Link>
         </NavigationMenuItem>
