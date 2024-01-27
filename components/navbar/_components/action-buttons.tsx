@@ -1,11 +1,27 @@
 "use client";
 
-// import { useState } from "react";
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import {X, AlignJustify} from "lucide-react";
 import Link from "next/link";
+import DropDownMenu from "./drop-down-menu";
+// import { RxDropdownMenu } from "react-icons/rx";
 
 const ActionButtons = () => {
+
+    // state to handle the menu button visibility
+    const [isDropdownVisible, setDropdownVisible] = useState(false);
+
+    // toggle the menu button / hamburger button
+    const toggleDropdown = () => {
+        setDropdownVisible(!isDropdownVisible);
+    }
+
+    // close the hamburger menu button
+    const closeDropdown = () => {
+        setDropdownVisible(false);
+    }
+
   return (
     <div className="pr-2">
         <div className="items-center justify-center flex">
@@ -29,6 +45,22 @@ const ActionButtons = () => {
                         </Button>
                     </div>
                 </div>
+
+                {isDropdownVisible && (
+                    <div onClick={toggleDropdown} className="rounded-full xl:hidden">
+                        <X className="h-5 w-5 items-center justify-center " />
+                    </div>
+                )}
+
+                {!isDropdownVisible && (
+                    <div onClick={toggleDropdown} className="flex lg:hidden">
+                        <AlignJustify className="h-5 w-5 items-center justify-center mr-2" />
+                    </div>
+                )}
+
+                {isDropdownVisible && (
+                    <DropDownMenu onClose={closeDropdown} />
+                )}
             </div>
         </div>
     </div>
